@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+     <h1>Zamówienie</h1>
+
+     Wybierz Obraz
+     <input type="file" id="plik" accept="image/png, image/jpeg" /></input> <br> <br>
+     Liczba Kopii: 
+     <input type="number" id="l_kopii"></input> <br> <br>
+      
+     <input type="radio" name="1" id="papier" value="1.5">Papier błyszczący</input>
+     <input type="radio" name="1" id="papier" value="2">Papier matowy</input> <br> <br>
+
+     <button id="dodaj" onclick="AddToCart()">Dodaj do koszyka</button>
+
+
+     <div id="koszyk">
+          <h1>Koszyk</h1>
+
+     </div>
+
+     <script>
+          function AddToCart(){
+               let paperType = document.querySelector("input[name = '1']:checked").value
+               let amount = document.querySelector("#l_kopii").value
+               let img = document.createElement("img")
+               img.src = URL.createObjectURL(
+                    document.querySelector("#plik").files[0]
+               )
+               document.querySelector("#koszyk").appendChild(img)
+               //   Zamien na paragraf
+               console.log("liczba kopii: " + amount)
+               console.log("cena: " + amount * paperType)
+          }
+     </script>
+</body>
+</html>
