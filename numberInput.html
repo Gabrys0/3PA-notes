@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <button onclick="Sum()">Hallo</button>
+    <p id="SumP"></p>
+    <script>
+        function Pitagoras(a, b){
+            let cSqr = (Math.pow(a,2) + Math.pow(b,2))
+            return Math.pow(cSqr, 1/2)
+        }
+        function Sum(){
+            let num1 = parseFloat(document.querySelector("#num1").value)
+            let num2 = parseFloat(document.querySelector("#num2").value)
+            let sum = num1 + num2
+
+            //document.write(sum)a
+            //alert(sum)
+            //document.querySelector("#SumP").innerHTML = sum
+            
+            let pitagoras = Pitagoras(num1, num2)
+            //alert(pitagoras)
+            document.querySelector("#SumP").innerHTML = pitagoras
+        }
+    </script>
+</body>
+</html>
