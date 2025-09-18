@@ -28,6 +28,11 @@
             //alert(pitagoras)
             document.querySelector("#SumP").innerHTML = pitagoras
         }
+        let p = document.querySelector("#SumP")
+        let tekst = "anna.maria@gmail.com"
+        p.innerHTML = tekst.match(/@gmail.com$/)
+        p.innerHTML += "@gmail.co".match(/@gmail.com/)
     </script>
 </body>
 </html>
+
