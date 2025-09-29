@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .elements{
+            width: 100px;
+            height: 20px;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="elementName">
+    <button onclick="AddElement()">Add</button>
+    <script>
+        function AddElement(){
+            let elemvalue = document.querySelector("#elementName").value
+            elem = document.createElement(elemvalue)
+            elem.classList.add("elements")
+            elem.innerHTML = elemvalue
+            document.querySelector("body").appendChild(elem)
+        }
+    </script>
+</body>
+</html>
