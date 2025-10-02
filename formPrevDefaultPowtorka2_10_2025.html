@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label>Login: </label>
+        <input type="text" id="LogIn"><br>
+        <label>Password: </label>
+        <input type="password" id="Password"><br>
+        <button type="submit" id="btn">Log in</button>
+    </form>
+    <script>
+        document.querySelector("form").addEventListener("submit", function(e){
+            e.preventDefault()
+            let logIn = document.querySelector("#LogIn").value
+            let password = document.querySelector("#Password").value
+            const p = document.createElement("p")
+            p.innerHTML = "login to: " + logIn + " <br>Haslo to: " + password
+            document.querySelector("form").appendChild(p)
+            
+            //document.querySelector("#LogIn").value = ""
+            //document.querySelector("#Password").value = ""
+
+            document.querySelector("form").reset()
+        })
+    </script>
+</body>
+</html>
