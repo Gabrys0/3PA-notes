@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Kalkulator kosztów montażu</h1>
+    <label>Szerokość pomieszczenia [m]: </label>
+    <input type="number" id="width">
+    <label>Długość pomieszczenia [m]: </label>
+    <input type="number" id="length"><br>
+    <p>Typ panelu</p>
+    <input type="radio" name="floorType" value="12"><label>Panele laminowane</label><br>
+    <input type="radio" name="floorType" value="14"><label>Panele winylowe</label><br>
+    <input type="radio" name="floorType" value="18"><label>Deska podłogowa</label><br>
+    <button id="oblicz">Oblicz</button>
+    <p id="wynik"></p>
+    <script>
+        document.querySelector("#oblicz").addEventListener("click", function(){
+            let width = parseFloat(document.querySelector("#width").value)
+            let length = parseFloat(document.querySelector("#length").value)
+            let costPerM = document.querySelector("input[name = floorType]:checked").value
+            
+            let area = width*length
+
+            document.querySelector("#wynik").innerHTML = "Pole powierzchni pomieszczenia: " + area + ", koszt montażu " + area * costPerM
+        })
+    </script>
+</body>
+</html>
