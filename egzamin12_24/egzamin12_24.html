@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: serif;
+            text-align: center;
+        }
+        main{
+            display: flex;
+            flex-wrap: wrap;
+            height: 100%;
+            width: 100%;
+        }
+        header, footer{
+            background-color:  indigo;
+            color: white;
+            font-style: italic;
+            padding: 2px;
+        }
+        aside{
+            height: 470px;
+            width: 50%;
+        }
+        img{
+            padding: 3px;
+            margin: 10px;
+            border: dotted 2px slateblue;
+        }
+        a{
+            color: white;
+        }
+        button{
+            background-color: slateblue;
+            color: white;
+            border: none;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            padding-right: 20px;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        button:hover{
+            background-color: indigo;
+        }
+        #turtle, #fruit{
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Efekty na Obrazkach</h1>
+    </header>
+    <main>
+        <aside>
+            <img src="pszczola.jpg" alt="pszczola na fioletowym kwiatku" id="beesImg"><br>
+            <input type="radio" name="pszczola" value="1"><label>Blur</label><br>
+            <input type="radio" name="pszczola" value="2"><label>Sepia</label><br>
+            <input type="radio" name="pszczola" value="3"><label>Negatyw</label><br>
+            <button id="bees" onclick="BeesTrans()">zastosuj</button>
+        </aside>
+        <aside>
+            <img src="pomarancza.jpg" alt="drzewo pomarańczy" id="orangeImg"><br>
+            <button id="orangeC" onclick="ColorIt(0)">Kolorowy</button>
+            <button id="orangeBW" onclick="ColorIt(100)">Czarno-Biały</button>
+        </aside>
+        <aside>
+            <img src="owoce.jpg" alt="Kosz pełen owoców" id="fruitImg"><br>
+            <input type="range" max="100" min="0" value="100" id="fruit">
+            <button id="fruitB" onclick="OpacityChange()">zastosuj</button>
+        </aside>
+        <aside>
+            <img src="zolw.jpg" alt="Żółw w wodzie" id="turtleImg"><br>
+            <input type="range" max="250" min="0" id="turtle">
+            <button id="turtleB" onclick="Brightness()">zastosuj</button>
+        </aside>
+    </main>
+    <footer></footer>
+    <script>
+        function BeesTrans(){
+            let efect = parseInt(document.querySelector("input[name = pszczola]:checked").value)
+            switch(efect){
+                case 1: 
+                    document.querySelector("#beesImg").style.filter = "blur(6px)"
+                    break
+                case 2: document.querySelector("#beesImg").style.filter = "sepia(100%)"
+                    break
+                case 3: document.querySelector("#beesImg").style.filter = "invert(100%)"
+                    break
+            }
+        }
+        function ColorIt(scale){
+            document.querySelector("#orangeImg").style.filter = `grayscale(${scale}%)`
+        }
+        function OpacityChange(){
+            let opacity = document.querySelector("#fruit").value
+            document.querySelector("#fruitImg").style.filter = `opacity(${opacity}%)`
+        }
+        function Brightness(){
+            let brightness = document.querySelector("#turtle").value
+            document.querySelector("#turtleImg").style.filter = `brightness(${brightness}%)`
+        }
+    </script>
+</body>
+</html>
